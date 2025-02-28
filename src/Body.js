@@ -2,15 +2,6 @@ import Stories from "./Stories";
 import Posts from "./Posts";
 import SideBar from "./Sidebar";
 
-
-
-
-
-
-
-
-
-
 export default function Body () {
     return (
         <>
@@ -18,8 +9,8 @@ export default function Body () {
         <div class="esquerda">
             <Stories />
             <Posts />
-            <SideBar />
         </div>
+            <SideBar />
       </div>
       </>
     )
