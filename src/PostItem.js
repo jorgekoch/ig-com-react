@@ -1,4 +1,32 @@
+import React, { useState } from 'react';
+
 export default function PostItem (props) {
+  const [postliked, setPostlikes] = useState('heart-outline');
+
+  const likePost = () => {
+    if (postliked=== "heart-outline") {
+      setPostlikes("heart");
+    } else {
+      setPostlikes("heart-outline");
+    }
+  };
+
+  const clickPost = () => {
+    if (postliked === "heart-outline") {
+      setPostlikes("heart");
+    }
+  };
+
+  const [postsave, setPostsaves] = useState("bookmark-outline");
+ 
+  const savePost = () => {
+    if (postsave === "bookmark-outline") {
+      setPostsaves("bookmark");
+    } else {
+      setPostsaves("bookmark-outline");
+    }
+  };
+  
   return (
     <div class="post">
     <div class="topo">
@@ -11,17 +39,17 @@ export default function PostItem (props) {
       </div>
     </div>
     <div class="conteudo">
-      <img src={props.image} alt={props.alt}/>
+      <img onClick={clickPost} src={props.image} alt={props.alt}/>
     </div>
     <div class="fundo">
       <div class="acoes">
         <div>
-          <ion-icon name="heart-outline"></ion-icon>
+          <ion-icon name={postliked} onClick={likePost}></ion-icon>
           <ion-icon name="chatbubble-outline"></ion-icon>
           <ion-icon name="paper-plane-outline"></ion-icon>
         </div>
         <div>
-          <ion-icon name="bookmark-outline"></ion-icon>
+          <ion-icon name={postsave} onClick={savePost}></ion-icon>
         </div>
       </div>
   
@@ -34,3 +62,4 @@ export default function PostItem (props) {
     </div>
   </div>
   )}
+

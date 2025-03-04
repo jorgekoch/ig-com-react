@@ -21,7 +21,7 @@ export default function User() {
 
   return (
     <div className="usuario">
-      <img src="assets/img/catanacomics.svg" alt="imagem de perfil" onClick={userimgChange} />
+      <img src={userimg} alt="imagem de perfil" onClick={userimgChange} />
       <div className="texto">
         <span>
           <strong>{username}</strong>
