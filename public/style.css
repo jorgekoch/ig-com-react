@@ -1,3 +1,7 @@
+:root {
+  --color-red: red;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -305,3 +309,6 @@ ion-icon {
   color: black;
 }
 
+.heart {
+  color: red;
+}

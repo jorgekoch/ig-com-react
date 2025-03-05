@@ -6,14 +6,20 @@ export default function PostItem (props) {
   const likePost = () => {
     if (postliked=== "heart-outline") {
       setPostlikes("heart");
+      addLike();
+      addRed();
     } else {
       setPostlikes("heart-outline");
+      setLikesCount(likesCount - 1);
+      setOnred("");
     }
   };
 
   const clickPost = () => {
     if (postliked === "heart-outline") {
       setPostlikes("heart");
+      addLike();
+      addRed();
     }
   };
 
@@ -27,6 +33,18 @@ export default function PostItem (props) {
     }
   };
   
+  const [likesCount, setLikesCount] = useState(Number(props.likescount));
+
+  const addLike = () => {
+    setLikesCount(likesCount + 1);
+  };
+
+  const [onred, setOnred] = useState("");
+
+  const addRed = () => {
+    setOnred("heart");
+  };
+
   return (
     <div class="post">
     <div class="topo">
@@ -44,7 +62,7 @@ export default function PostItem (props) {
     <div class="fundo">
       <div class="acoes">
         <div>
-          <ion-icon name={postliked} onClick={likePost}></ion-icon>
+          <ion-icon name={postliked} onClick={likePost} class={onred}></ion-icon>
           <ion-icon name="chatbubble-outline"></ion-icon>
           <ion-icon name="paper-plane-outline"></ion-icon>
         </div>
@@ -56,7 +74,7 @@ export default function PostItem (props) {
       <div class="curtidas">
         <img src={props.likesimg} alt={props.likes}/>
         <div class="texto">
-          Curtido por <strong>respondeai</strong> e <strong>outras {props.likescount} pessoas</strong>
+          Curtido por <strong>{props.likes}</strong> e <strong>outras {likesCount} pessoas</strong>
         </div>
       </div>
     </div>
